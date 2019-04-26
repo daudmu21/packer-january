@@ -18,7 +18,8 @@
             "sudo wget http://wordpress.org/latest.zip",
             "sudo unzip latest.zip",
             "sudo rsync -avp ~/wordpress/ /var/www/html",
-            "sudo chown -R apache:apache /var/www/html/*"
+            "sudo chown -R apache:apache /var/www/html/*",
+            "sudo systemctl enable httpd"
           ]
          },
     {
