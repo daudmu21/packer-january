@@ -5,7 +5,7 @@
       "source_ami":"ami-0019ef04ac50be30f", 
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
-      "ami_name": "packer-example {{timestamp}}"
+      "ami_name": "jenkins-example {{timestamp}}"
       }],
       "provisioners": [{
           "type": "shell",
@@ -14,7 +14,7 @@
             "sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key",
             "sudo yum install jenkins -y",
             "sudo yum install java  -y ",
-            "yum install java-1.8.0-openjdk  -y", 
+            "sudo yum install java-1.8.0-openjdk  -y", 
             "systemctl enable jenkins"
           ]
           }]
