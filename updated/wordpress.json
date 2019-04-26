@@ -1,0 +1,31 @@
+{
+    "builders": [{
+      "type": "amazon-ebs",
+      "region": "us-west-1b",
+      "source_ami":"ami-0019ef04ac50be30f", 
+      "instance_type": "t2.micro",
+      "ssh_username": "ec2-user",
+      "ami_name": "packer-example {{timestamp}}"
+      }],
+      "provisioners": [
+          {
+          "type": "shell",
+          "inline": [
+            "sudo yum update -y",
+            "sudo yum install php php-msql -y",
+            "sudo yum install mariadb-server httpd -y",
+            "sudo yum install wget -y",
+            "sudo wget http://wordpress.org/latest.zip",
+            "sudo unzip latest.zip",
+            "sudo rsync -avp ~/wordpress/ /var/www/html",
+            "sudo chown -R apache:apache /var/www/html/*"
+          ]
+         },
+    {
+        "type": "file",
+        "source": "test_file",
+        "destination": "/tmp/test_file"
+    }
+  ]
+}  
+      
